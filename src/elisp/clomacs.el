@@ -94,7 +94,7 @@ REPL-BUFFER-PROJECT-NAME \"clomacs\"."
 
 (defun clomacs-get-first-connection ()
   "Get any first CIDER session buffer."
-  (-> (sesman-sessions 'CIDER) car cdr car))
+  (thread-first (sesman-sessions 'CIDER) car cdr car))
 
 (defun clomacs-get-connection (&optional library)
   "Return buffer with nREPL process related to LIBRARY.
